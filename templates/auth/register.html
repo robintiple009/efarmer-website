@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}
+    E-Farmer | Register
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h1><span class="text-primary">Register</span></h1>
+        <hr>
+        <div class="row">
+            <div class="col">
+                <div class="d-flex col-sm-12 col-12">
+                    {% load crispy_forms_tags %}
+                    <form method="post"> {% csrf_token %}
+                        {{ form|crispy }}
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

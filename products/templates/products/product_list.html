@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}
+    E-Farmer | {{ category }}
+{% endblock %}
+
+
+{% block content %}
+{#    <div class="container">#}
+{#        <div class="display-4 text-info mt-2">{{ category }}</div>#}
+{#    </div>#}
+    <div class="container">
+        <div
+        class="col-md-12 d-flex justify-content-center text-capitalize mt-5"
+        >
+        <h2 class="border-bottom-orange">{{ category }}</h2>
+        </div>
+        {% if object_list.count == 0 %}
+            <div class="display-4 text-primary my-5">
+            No Products To Show :(
+            </div>
+        {% endif %}
+        <div class="row d-flex justify-content-center mt-5">
+        {% for p in object_list %}
+        {% include "products/snippets/card.html" with obj=p %}
+        {% endfor %}
+        </div>
+    </div>
+{% endblock %}

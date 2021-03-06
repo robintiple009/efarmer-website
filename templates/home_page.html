@@ -1,0 +1,32 @@
+{% extends "base.html" %} {% block title %}
+{{ title }}
+{% endblock %}
+{% block content %}
+
+    <div class="container">
+        {% include "categories.html" %}
+{#        Featured Products#}
+        <div
+        class="col-md-12 d-flex justify-content-center text-capitalize mt-5"
+        >
+        <h2 class="border-bottom-orange">featured products</h2>
+        </div>
+        <div class="row d-flex justify-content-center mt-5">
+        {% for fp in featured_products %}
+        {% include "products/snippets/card.html" with obj=fp %}
+        {% endfor %}
+        </div>
+{#        Recently added#}
+        <div
+        class="col-md-12 d-flex justify-content-center text-capitalize mt-5"
+        >
+        <h2 class="border-bottom-orange">recently added</h2>
+        </div>
+        <div class="row d-flex justify-content-center mt-5">
+        {% for ra in recently_added %}
+        {% include "products/snippets/card.html" with obj=ra %}
+        {% endfor %}
+        </div>
+    </div>
+
+{% endblock content %}
